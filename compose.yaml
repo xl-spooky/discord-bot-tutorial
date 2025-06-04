@@ -1,0 +1,21 @@
+services:
+  bot:
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+
+    ports:
+      - 5000:5000
+    env_file:
+      - path: .env
+        required: true
+
+    develop:
+      watch:
+        - path: tutorialbot/
+          action: sync+restart
+          target: /app/tutorialbot
+          ignore:
+            - ./.venv
+        - path: pyproject.toml
+          action: rebuild

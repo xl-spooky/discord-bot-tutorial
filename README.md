@@ -29,17 +29,20 @@ In this guide, you'll learn how to build a clean, scalable, and production-ready
 
 To get started, clone the repository and follow the setup instructions in [`docs/setup.md`](docs/setup.md) *(coming soon)*.
   ```bash
-    git clone https://github.com/your-username/discord-bot-tutorial.git
-    cd discord-bot-tutorial
+    git clone https://github.com/xl-spooky/discord-bot-tutorial.git
   ```
 
 Install dependencies using Poetry:
   ```bash
     poetry install
   ```
-Run the bot:
+Run the bot thru poetry or docker:
   ```bash
-    poetry run python -m basebot.bot
+    poetry run python -m tutorial.bot
+  ```
+
+  ```bash
+    docker compose up --force-recreate --build -d bot
   ```
 ---
 

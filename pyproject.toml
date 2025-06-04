@@ -1,0 +1,106 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "tutorialbot"
+version = "1.0.0"
+description = "Spooky Bot"
+authors = [
+    "Spooky <spkydevelopment@gmail.com>",
+]
+license = "AGPL v3"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+aiohttp = { extras = ["speedups"], version = "^3.9" }
+cachetools = "^5.4.0"
+# disnake v2.11.0a (commit pinned)
+disnake = { extras = ["speed"], git = "https://github.com/DisnakeDev/disnake.git", rev = "2ab0c535b021dd120b5a6aff67dc1c195b9913ae" }
+dynaconf = "^3.2"
+loguru = "^0.7"
+psutil = "^5.9"
+python-dotenv = "^1.0.1"
+aiohttp-socks = "^0.9.0"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.4.9"
+
+[tool.ruff]
+src = ["tutorialbot"]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+preview = true
+explicit-preview-rules = true
+
+select = [
+    "I",   # isort
+    "E",
+    "F",
+    "A",   # shadowing built-ins
+    "RUF",
+    "UP",
+    "PL",  # pylint
+
+    "D",   # docstrings
+    "D212",
+
+    "Q",   # consistent string quotes
+    "FLY", # static joins
+    "ISC", # string concatenation
+
+    "SIM", # simplifiable logic
+    "C4",  # simplifiable comprehensions
+    "PIE", # misc
+
+    "G",   # avoid formatting in logging
+    "LOG", # logging stuff
+
+    "TRY", # try - except pitfalls
+    "RSE", # skip parens on empty exceptions
+
+    "ANN",   # annotations
+    "ASYNC", # blocking calls in async context
+    "TCH004", # runtime use of TYPE_CHECKING imports
+    "TCH005", # empty TYPE_CHECKING
+    "TCH010",
+    "FURB",
+    "PTH",   # pathlib > os.path / open
+    "ERA",   # commented out code
+
+    # preview
+    "RUF022", # sort __all__
+]
+ignore = [
+    "ANN101", # type of self
+    "ANN102", # type of cls
+    "ANN401", # Any
+    "TRY003", # messages in exceptions
+    "PLR09",  # parameter, expression counts
+    "D1",     # don't require docstrings
+]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+split-on-trailing-comma = false
+
+[tool.ruff.lint.flake8-builtins]
+builtins-ignorelist = ["id", "format", "input"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+
+[tool.pyright]
+pythonVersion = "3.11"
+include = ["tutorialbot"]
+typeCheckingMode = "strict"
+
+reportMissingTypeStubs = false
+reportUnknownVariableType = false
+reportUnknownMemberType = false
+
+reportIncompatibleMethodOverride = false
