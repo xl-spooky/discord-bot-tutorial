@@ -3,6 +3,7 @@
 Welcome to the **Discord Bot Tutorial**!  
 In this guide, you'll learn how to build a clean, scalable, and production-ready Discord bot using modern tools and best practices.
 
+Youtube Tutorial: https://www.youtube.com/watch?v=C56XHkhqv0g&t=800s
 ---
 
 ## 📦 Tech Stack
