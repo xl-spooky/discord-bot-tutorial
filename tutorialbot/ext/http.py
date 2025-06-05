@@ -8,7 +8,7 @@ class HttpClient:
     """HttpClient for performing asynchronous HTTP requests.
 
     Provides methods to create regular and authentication sessions, and to retrieve content
-    or JSON data from a URL, as well as resolve redirects. Tracing is integrated via OpenTelemetry.
+    or JSON data from a URL, as well as resolve redirects.
     """
 
     session: ClassVar[aiohttp.ClientSession]

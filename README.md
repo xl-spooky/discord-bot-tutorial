@@ -38,7 +38,7 @@ Install dependencies using Poetry:
   ```
 Run the bot thru poetry or docker:
   ```bash
-    poetry run python -m tutorial.bot
+    poetry run python -m tutorialbot.bot
   ```
 
   ```bash
